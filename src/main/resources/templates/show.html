@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resource Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="fragments.html :: navbar"></nav>
+<h1 class = "display-4">Resource Details:</h1>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Name: </strong>
+        <a th:href="@{/redirect/{id}(id=${link.id})}" target ="_blank">
+        <span th:text="${link.resourseName}"></span></a></li>
+    <li class="list-group-item"><strong>URL: </strong>
+    <span th:text="${link.url}"></span></li>
+    <li class="list-group-item"><strong>Date: </strong>
+        <span th:text="${link.dayEntered}"></span></li>
+    <li class="list-group-item"><strong>Person: </strong>
+        <span th:text="${link.person}"></span></li>
+</ul>
+    <button> <a th:href="@{/update/{id}(id=${link.id})}">Update
+    </a></button>
+    <button> <a th:href="@{/delete/{id}(id=${link.id})}">Delete
+    </a></button>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resources List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="fragments.html :: navbar"></nav>
+<h1 class = "display-4">List of Links</h1>
+<a th:each="result:${results}" th:href="@{/redirect/{id}(id=${result.id})}" target="_blank">
+    <span th:text="${result.resourseName}" ></span></a>
+
+<ul class="list-group" th:each="eachLink:${links}">
+    <a th:href="@{/detail/{id}(id=${eachLink.id})}">
+        <li class="list-group-item" th:text="${eachLink.resourseName}">
+    </a>
+    </li>
+</ul>
+</body>
+</html>
